@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK11</title>
+    <script>
+     let numbers=[];
+     let result;
+     for(let i=0;i<4;i++){
+        numbers.push(Math.floor(Math.random()*100)+1);//1.１～１００の乱数を生成,2.偶数か奇数かを湧けるif文をつくる3.document.write
+        if(numbers[i]%2===0){
+            result="(偶数)"
+        }else{
+            result="(奇数)"
+        };
+        document.write(`<p>${numbers[i]}${result}</P>`);
+     }   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

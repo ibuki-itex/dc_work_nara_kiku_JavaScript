@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK06</title>
+    <script>
+     const num=Math.floor(Math.random()*100)+1;
+     document.write(num );
+     if(num%3==0&&num%6==0){
+        document.write(",3と6の倍数です");
+     }else if(num%3==0){
+        document.write(",3の倍数で、6の倍数ではありません");
+     }else{
+        document.write(",倍数ではありません");
+     };
+    </script>
+    <script>  
+    const random01=Math.floor(Math.random()*10)+1;
+    const random02=Math.floor(Math.random()*10)+1; //このコンソールで数を生成してます。
+    let result01;
+    let result02;
+    if(random01==random02){
+      result01="2つは同じ数です。";
+    }else if(random01>random02){
+      result01="random01の方が大きいです。";
+    }else{
+      result01="random02の方が大きいです。";
+    };
+
+    if(random01%3==0&&random02%3==0){
+      result02="数字は2つです。";
+    }else if(random01%3==0||random02%3==0){
+      result02="数字は1つです。";
+    }else{
+      result02="数はありません。";
+    };
+    document.write(`random01=${random01},random02 =${random02}です。${result01}2つの数字のうち、3の倍数となる${result02}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

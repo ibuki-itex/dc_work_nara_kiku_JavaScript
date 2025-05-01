@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK07</title>
+    <script>
+        const num=Math.floor(Math.random()*100)+1;
+        document.write(num);
+        switch(num%6){
+        case 0:
+            document.write(`、3と6の倍数です。`);
+            break;
+        case 3:
+            document.write(`、3の倍数で6の倍数ではありません。`);
+            break;
+        default:
+            document.write(`、倍数ではありません。`);
+        };   
+    </script>
+    <script>
+        const random01=Math.floor(Math.random()*10)+1;
+        const random02=Math.floor(Math.random()*10)+1;
+        let result01;
+        let result02;
+        document.write(`${random01}${random02}`);
+        switch(random01-random02){
+        case 0:
+            result01="2つは同じ数です。";//例5-5=0
+            break;    
+        case 1: //5-4=1
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9: //10-1=9 処理が同じケースはまとめられます。
+            result01="random01の方が大きいです。";        
+            break;
+        default:
+            result01="random02の方が大きいです。";   
+        };
+        switch(`${random01},${random02}`){
+        case "3,3":
+        case "3,6":
+        case "3,9":
+        case "6,3":
+        case "6,6":
+        case "6,9":
+        case "9,3":
+        case "9,6":
+        case "9,9":
+            result02="数字は2つです。";
+            break;
+        case "1,3":        
+        case "1,6": 
+        case "1,9":
+        case "2,3":
+        case "2,6":
+        case "2,9":
+        case "3,1":
+        case "3,2":
+        case "3,4":
+        case "3,5":
+        case "3,7":
+        case "3,8":
+        case "4,3":
+        case "4,6":
+        case "4,9":
+        case "5,3":
+        case "5,6":
+        case "5,9":
+        case "6,1":
+        case "6,2":
+        case "6,4":
+        case "6,5":
+        case "6,7":
+        case "6,8":
+        case "7,3":
+        case "7,6":
+        case "7,9":
+        case "8,3":
+        case "8,6":
+        case "8,9":
+        case "9,1":
+        case "9,2":
+        case "9,4":
+        case "9,5":
+        case "9,7":
+        case "9,8":
+        case "10,3":
+        case "10,6":
+        case "10,9":            
+            result02="数字は1つです。";
+            break;
+        default:
+            result02="数はありません。";                                                                                                                         
+        };
+        document.write(`random01=${random01},random02 =${random02}です。${result01}2つの数字のうち、3の倍数となる${result02}`);    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

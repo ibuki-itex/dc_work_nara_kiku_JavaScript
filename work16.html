@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK16</title>
+</head>
+<body>
+<script>
+    class human{
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+            this.calc_age=()=>{
+               document.write(`<p>${name}さんは成人してから${age-20}年経っています</p>`);     
+            }
+        }    
+    }
+
+    let taro=new human("太郎",28);
+    document.write(taro.name,taro.age);
+    taro.calc_age();
+
+    let jiro=new human("次郎",22);
+    document.write(jiro.name,jiro.age);
+    jiro.calc_age();
+
+</script>    
+    
+</body>
+</html>

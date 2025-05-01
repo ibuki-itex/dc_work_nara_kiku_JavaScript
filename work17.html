@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK17</title>
+</head>
+<body>
+<script>
+let date=new Date();
+document.write(`<p>${date}</p>`);
+//0月が1月なので、11月は10
+let birthday=new Date(2001,10,22);
+document.write(birthday);
+let ms=date-birthday;
+document.write(`<p>${ms}</p>`);
+//ミリ秒を日数に置き換える。ms→秒→分→時間→日
+let progress=Math.floor(ms/1000/60/60/24)
+document.write(`<p>${progress}日経過しています。</p>`);
+</script>    
+</body>
+</html>

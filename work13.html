@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORk13</title>
+    <script>
+    function calculate(num){
+        if(num%2==0){
+            num=num*10;
+        }else{
+            num=num*100;
+        }
+        return num;
+    }
+    let  calculate_num=calculate(Math.floor(Math.random()*100+1));
+    document.write(calculate_num);   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

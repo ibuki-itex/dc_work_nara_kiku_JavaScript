@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK12</title>
+    <script>
+    let class01={"oda":Math.floor(Math.random()*100+1),"toyotomi":Math.floor(Math.random()*100+1),"tokugawa":Math.floor(Math.random()*100+1),"takeda":Math.floor(Math.random()*100+1)};
+    let class02={"minamoto":Math.floor(Math.random()*100+1),"taira":Math.floor(Math.random()*100+1),"sugawara":Math.floor(Math.random()*100+1),"fujiwara":Math.floor(Math.random()*100+1)};
+    let result01;
+    let result02=(class01["oda"]+class01["toyotomi"]+class01["tokugawa"]+class01["takeda"])/4;
+    let result03=(class02["minamoto"]+class02["taira"]+class02["sugawara"]+class02["fujiwara"])/4;   
+    if(class01["oda"]==class02["sugawara"]){
+        result01="同じ点数です";
+    }else if(class01["oda"]>=class02["sugawara"]){
+        result01="odaさんの方が高いです。";
+    }else{
+        result01="sugawaraさんの方が高いです。";
+    };
+    document.write(`<p>odaさんの点数は${class01["oda"]}点です。sugawaraさんの点数は${class02["sugawara"]}点です。${result01}</p>`);
+    document.write(`<p>class01の平均点は${result02}です。class02の平均点は${result03}です。</p>`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
