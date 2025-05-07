@@ -7,13 +7,30 @@
 </head>
 <body>
 <script>
-  let str1="竜王　シドー　ゾーマ　エスターク";
+  let str="竜王　シドー　ゾーマ　エスターク";
   const output_function=()=>{    
-  document.write(str1.endsWith("マ"));
+  document.write(str.endsWith("マ"));
   //指定した文字で終わるか？チェックしてくれる
-  document.write(",")
-  document.write(str1.includes("エスターク"));
+  document.write(",");
+  document.write(str.includes("エスターク"));
   //指定した文字が含まれているか、チェックしてくれる
+  document.write(",");
+  document.write(`${str.at(-1)}`); 
+  //文字列から指定した番号の文字を左から（０起点）探して、表示させる、マイナスはその逆、テンプレートリテラルが必要。
+  //文字列で表示させる場合。リテラルがないと数値として認識されるから。エラーが起きるのだろう
+  document.write(",");
+  document.write(`${str.charAt(11)}`);
+  //上と違って、マイナスがつかえない。
+  document.write(",")
+  document.write(str.indexOf("ゾーマ"));
+  //指定した文字列が最初にくるインデックス番号を表示
+  document.write(",")
+  document.write(`${str.charCodeAt(0)}`)
+  //指定したインデックス番号の順番に当たる文字を左から探して、その文字のコードを表示させる。この場合だと、「竜」の文字コードが表示される
+  document.write(",");
+  const monster="ミルドラース";  
+  document.write(`${str.includes(monster)}`);
+  //指定した定数（変数）の文字が文字列に含まれているか、チェックする。
   }
   output_function();
 </script>    
