@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY23</title>
+</head>
+<body>
+<script>
+  function scope_in_function(){
+        const str="local";
+        document.write(`<p>関数内:${typeof(str)}</p>`);  
+    }
+    scope_in_function();
+    document.write(`<p>関数外:${typeof(str)}</p>`); 
+</script>    
+    
+</body>
+</html>
