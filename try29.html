@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY29</title>
+</head>
+<body>
+    <div id="textbox">
+        <p id="id">要素１</p>
+        <p class="class_name">要素２</p>
+        <p class="class_name">要素３</p>
+    </div>
+    <script>
+        const textbox=document.getElementById("textbox");
+        let new_element1=document.createElement("p");
+        new_element1.textContent="指定要素の中の末尾に追加";
+        textbox.appendChild(new_element1);
+
+        const class_name=document.getElementsByClassName("class_name");
+        let new_element2=document.createElement("p");
+        new_element2.textContent="指定要素の後に追加";
+
+        class_name[0].after(new_element2);
+    </script>    
+</body>
+</html>
