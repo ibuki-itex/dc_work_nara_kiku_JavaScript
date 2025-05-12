@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題</title>
+</head>
+<body>
+    <div id="textbox">
+        <p id="element_1">要素１</p>
+    </div>
+    <script>
+        //要素１を変更後テキストに変更
+        const element_1=document.getElementById("element_1");
+        element_1.textContent="変更後テキスト";
+        //変更後テキストの後に追加テキストを挿入
+        let new_element=document.createElement("p");
+        new_element.textContent="追加テキスト";
+        new_element.style.color="#ff0000";
+        new_element.style.fontSize=30+"px";
+        element_1.after(new_element);
+        //テキストボックスの背後を黄色に
+        const textbox=document.getElementById("textbox");
+        textbox.style.backgroundColor="#ffff00";
+    </script>
+</body>
+</html>
