@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK25</title>
+</head>
+<body>
+    <div id="textbox">
+        <p id="element_1">要素１</p>
+    </div>
+    <input type="button" value="ボタン" id="button">
+    <script>
+        function click_button(){
+            //要素１を変更後テキストに変更
+            const element_1=document.getElementById("element_1");
+            element_1.textContent="変更後テキスト";
+            //テキストボックスの色変更
+            const textbox=document.getElementById("textbox");
+            textbox.style.backgroundColor="#ffff00";
+            //追加テキスト挿入
+            let new_element=document.createElement("p");
+            new_element.textContent="追加テキスト";
+            new_element.style.color="#ff0000";
+            new_element.style.fontSize=30+"px";
+            element_1.after(new_element);
+        }
+        let button=document.getElementById("button");
+        button.addEventListener("click",click_button);       
+    </script>    
+</body>
+</html>
