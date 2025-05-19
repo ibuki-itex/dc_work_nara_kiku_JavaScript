@@ -61,8 +61,11 @@
         //ミリ秒を分に変換
         let min=Math.floor(ms/1000/60)%60;
         const start_function=()=>{
-          document.getElementById("num");
-          num.textContent=(`${min}:${sec}.${ms}`); 
+            let zero1=("0"+ms).slice(-2);
+            let zero2=("0"+sec).slice(-2);
+            let zero3=("0"+min).slice(-2);
+            document.getElementById("num");
+            num.textContent=(`${zero1}:${zero2}.${zero3}`);
         }
         start_function();
     </script>
