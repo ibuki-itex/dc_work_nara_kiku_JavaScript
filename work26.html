@@ -57,17 +57,65 @@
         //ます、ミリ秒を定義  
         let ms=0;
         //ミリ秒を秒に変換
-        let sec=Math.floor(ms/1000)%60;  
+        let sec=0;  
         //ミリ秒を分に変換
-        let min=Math.floor(ms/1000/60)%60;
+        let min=0;
+        //初期表示
+        const input_stop=document.getElementById("stop");
+        const input_reset=document.getElementById("reset");
+        let zero1=("0"+ms).slice(-2);
+        let zero2=("0"+sec).slice(-2);
+        let zero3=("0"+min).slice(-2);
+        document.getElementById("num");
+        num.textContent=(`${zero3}:${zero2}.${zero1}`);
+        input_stop.disabled=true;
+        input_stop.style.opacity=0.5;
+        input_reset.disabled=true;
+        input_reset.style.opacity=0.5;
+        //スタートボタンを押した時の処理
+        let stop_watch;
+        const input_start=document.getElementById("start");
         const start_function=()=>{
+            //ストップ・リセットボタン押せないのと透明化処理
+            input_start.disabled=true;
+            input_start.style.opacity=0.5;
+            input_stop.disabled=false;
+            input_stop.style.opacity=1;
+            stop_watch=setInterval(start_up,10);
+        }
+        function start_up(){
+            let ms_num=zero1.textContent;
+            let sec_num=zero2.textContent;
+            let min_num=zero3.textContent;
+            ms_num++;
+            zero1.textContent=ms_num;
+            if(ms>100){
+                sec_num++;
+                zero2.textContent=sec_num;
+                ms_num.textContent="00";
+            }else{};
+            if(sec_num>60){
+                min_num++;
+                zero3.textContent=min_num;
+                sec_num.textContent="00";
+            }else{}
+        }
+        //リセットボタン押した時の処理
+        const reset_function=()=>{
+            ms=0;
+            sec=0;
+            min=0;
             let zero1=("0"+ms).slice(-2);
             let zero2=("0"+sec).slice(-2);
             let zero3=("0"+min).slice(-2);
             document.getElementById("num");
-            num.textContent=(`${zero1}:${zero2}.${zero3}`);
+            num.textContent=(`${zero3}:${zero2}.${zero1}`);
+            input_stop.disabled=true;
+            input_stop.style.opacity=0.5;
+            input_reset.disabled=true;
+            input_reset.style.opacity=0.5;
         }
-        start_function();
+        input_start.addEventListener("click",start_function);
     </script>
 </body>
 </html>
