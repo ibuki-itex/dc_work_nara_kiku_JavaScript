@@ -63,11 +63,12 @@
         //初期表示
         const input_stop=document.getElementById("stop");
         const input_reset=document.getElementById("reset");
-        let zero1=("0"+ms).slice(-2);
-        let zero2=("0"+sec).slice(-2);
-        let zero3=("0"+min).slice(-2);
+        let ms_num=("0"+ms).slice(-2);
+        let sec_num=("0"+sec).slice(-2);
+        let min_num=("0"+min).slice(-2);
         document.getElementById("num");
-        num.textContent=(`${zero3}:${zero2}.${zero1}`);
+        num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
+        //ストップ・リセットボタン押せないのと透明化処理
         input_stop.disabled=true;
         input_stop.style.opacity=0.5;
         input_reset.disabled=true;
@@ -76,29 +77,30 @@
         let stop_watch;
         const input_start=document.getElementById("start");
         const start_function=()=>{
-            //ストップ・リセットボタン押せないのと透明化処理
+            stop_watch=setInterval(start_up,10);
             input_start.disabled=true;
             input_start.style.opacity=0.5;
             input_stop.disabled=false;
-            input_stop.style.opacity=1;
-            stop_watch=setInterval(start_up,10);
+            input_stop.style.opacity=1
         }
+        let limit=0;
         function start_up(){
-            let ms_num=zero1.textContent;
-            let sec_num=zero2.textContent;
-            let min_num=zero3.textContent;
-            ms_num++;
-            zero1.textContent=ms_num;
-            if(ms>100){
-                sec_num++;
-                zero2.textContent=sec_num;
-                ms_num.textContent="00";
-            }else{};
-            if(sec_num>60){
-                min_num++;
-                zero3.textContent=min_num;
-                sec_num.textContent="00";
-            }else{}
+            while(limit<=3){ 
+                if(ms>=100&&sec>=60){
+                    min++;
+                    limit++;
+                    sec=0;
+                    ms=0;
+                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
+                }else if(ms>=100){
+                    sec++;
+                    ms=0;
+                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
+                }else{
+                    ms++;    
+                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
+                }
+            }
         }
         //リセットボタン押した時の処理
         const reset_function=()=>{
