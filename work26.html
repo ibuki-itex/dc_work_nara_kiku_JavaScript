@@ -56,19 +56,16 @@
     <script>
         //ます、ミリ秒を定義  
         let ms=0;
-        //ミリ秒を秒に変換
-        let sec=0;  
-        //ミリ秒を分に変換
+        //秒を定義
+        let sec=0;
+        //分を定義
         let min=0;
-        //初期表示
+        //ストップウォッチの初期表示
+        let times=document.getElementById("num");
+        times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
+        //ストップ・リセットボタン押せないのと透明化処理
         const input_stop=document.getElementById("stop");
         const input_reset=document.getElementById("reset");
-        let ms_num=("0"+ms).slice(-2);
-        let sec_num=("0"+sec).slice(-2);
-        let min_num=("0"+min).slice(-2);
-        document.getElementById("num");
-        num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
-        //ストップ・リセットボタン押せないのと透明化処理
         input_stop.disabled=true;
         input_stop.style.opacity=0.5;
         input_reset.disabled=true;
@@ -80,44 +77,52 @@
             stop_watch=setInterval(start_up,10);
             input_start.disabled=true;
             input_start.style.opacity=0.5;
+            input_reset.disabled=true;
+            input_reset.style.opacity=0.5;
             input_stop.disabled=false;
             input_stop.style.opacity=1
         }
-        let limit=0;
+        //次はwhile文、if文でミリ秒をリセット
         function start_up(){
-            while(limit<=3){ 
-                if(ms>=100&&sec>=60){
+            if(min<=1){
+                ms++;
+                times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
+            }
+                if(min<=1&&sec>=59&&ms>=100){
                     min++;
-                    limit++;
                     sec=0;
                     ms=0;
-                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
-                }else if(ms>=100){
-                    sec++;
+                    times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);   
+                }else if(min<=1&&ms>=100){
+                    sec++; 
                     ms=0;
-                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
-                }else{
-                    ms++;    
-                    num.textContent=(`${min_num}:${sec_num}.${ms_num}`);
+                    times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`); 
                 }
             }
+        const stop_function=()=>{
+             times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
+             input_stop.disabled=true;
+             input_stop.style.opacity=0.5;
+             input_start.disabled=false;
+             input_start.style.opacity=1;
+             input_reset.disabled=false;
+             input_reset.style.opacity=1;
         }
-        //リセットボタン押した時の処理
         const reset_function=()=>{
-            ms=0;
-            sec=0;
-            min=0;
-            let zero1=("0"+ms).slice(-2);
-            let zero2=("0"+sec).slice(-2);
-            let zero3=("0"+min).slice(-2);
-            document.getElementById("num");
-            num.textContent=(`${zero3}:${zero2}.${zero1}`);
-            input_stop.disabled=true;
-            input_stop.style.opacity=0.5;
-            input_reset.disabled=true;
-            input_reset.style.opacity=0.5;
-        }
+        ms=0;
+        sec=0;
+        min=0;
+        times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
+        const input_stop=document.getElementById("stop");
+        const input_reset=document.getElementById("reset");
+        input_stop.disabled=true;
+        input_stop.style.opacity=0.5;
+        input_reset.disabled=true;
+        input_reset.style.opacity=0.5;
+        }   
         input_start.addEventListener("click",start_function);
+        input_stop.addEventListener("click",stop_function);
+        input_reset.addEventListener("click",reset_function);
     </script>
 </body>
 </html>
