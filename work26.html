@@ -60,19 +60,24 @@
         let sec=0;
         //分を定義
         let min=0;
-        //ストップウォッチの初期表示
         let times=document.getElementById("num");
-        times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
-        //ストップ・リセットボタン押せないのと透明化処理
+        //ボタンを操作するため変数を関数外で取得
+        const input_start=document.getElementById("start");
         const input_stop=document.getElementById("stop");
         const input_reset=document.getElementById("reset");
-        input_stop.disabled=true;
-        input_stop.style.opacity=0.5;
-        input_reset.disabled=true;
-        input_reset.style.opacity=0.5;
+        //初期表示及びリセットボタンを押した時の処理
+        const reset_function=()=>{   
+            ms=0;
+            sec=0;
+            min=0;
+            times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
+            input_stop.disabled=true;
+            input_stop.style.opacity=0.5;
+            input_reset.disabled=true;
+            input_reset.style.opacity=0.5;
+        } 
         //スタートボタンを押した時の処理
         let stop_watch;
-        const input_start=document.getElementById("start");
         const start_function=()=>{
             stop_watch=setInterval(start_up,10);
             input_start.disabled=true;
@@ -82,24 +87,25 @@
             input_stop.disabled=false;
             input_stop.style.opacity=1
         }
-        //次はwhile文、if文でミリ秒をリセット
         function start_up(){
-            if(min<=1){
+            if(min<=59){
                 ms++;
                 times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
             }
-                if(min<=1&&sec>=59&&ms>=100){
+                if(min<=59&&sec>=59&&ms>=100){
                     min++;
                     sec=0;
                     ms=0;
                     times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);   
-                }else if(min<=1&&ms>=100){
+                }else if(min<=59&&ms>=100){
                     sec++; 
                     ms=0;
                     times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`); 
                 }
             }
         const stop_function=()=>{
+             //一時停止
+             clearInterval(stop_watch);
              times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
              input_stop.disabled=true;
              input_stop.style.opacity=0.5;
@@ -108,18 +114,7 @@
              input_reset.disabled=false;
              input_reset.style.opacity=1;
         }
-        const reset_function=()=>{
-        ms=0;
-        sec=0;
-        min=0;
-        times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
-        const input_stop=document.getElementById("stop");
-        const input_reset=document.getElementById("reset");
-        input_stop.disabled=true;
-        input_stop.style.opacity=0.5;
-        input_reset.disabled=true;
-        input_reset.style.opacity=0.5;
-        }   
+        reset_function();  
         input_start.addEventListener("click",start_function);
         input_stop.addEventListener("click",stop_function);
         input_reset.addEventListener("click",reset_function);
