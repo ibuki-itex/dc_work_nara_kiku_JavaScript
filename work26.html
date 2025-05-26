@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,21 +88,23 @@
             input_stop.style.opacity=1
         }
         function start_up(){
+            //ミリ秒ふやすif
             if(min<=59){
                 ms++;
                 times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);
             }
-                if(min<=59&&sec>=59&&ms>=100){
-                    min++;
-                    sec=0;
-                    ms=0;
-                    times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);   
-                }else if(min<=59&&ms>=100){
-                    sec++; 
-                    ms=0;
-                    times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`); 
-                }
+            //分と秒をふやすif
+            if(min<=59&&sec>=59&&ms>=100){
+                min++;
+                sec=0;
+                ms=0;
+                times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`);   
+            }else if(min<=59&&ms>=100){
+                sec++; 
+                ms=0;
+                times.textContent=(`${("0"+min).slice(-2)}:${("0"+sec).slice(-2)}.${("0"+ms).slice(-2)}`); 
             }
+        }
         const stop_function=()=>{
              //一時停止
              clearInterval(stop_watch);
