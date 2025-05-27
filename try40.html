@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>TRY40</title>
+</head>
+<body>
+    <div id="checkbox_value">チェックしていません</div>
+    <label for="checkbox">
+        <input type="checkbox" id="checkbox">チェックボックス
+    </label>
+    <script>
+        function change_event(){
+            if($("#checkbox").prop("checked")){
+                $("#checkbox_value").html("チェックしました");
+            }else{
+                $("#checkbox_value").html("チェックしていません");
+            }
+        }
+        $("#checkbox").change(change_event);
+    </script>
+</body>
+</html>
