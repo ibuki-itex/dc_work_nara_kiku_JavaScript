@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WORK27</title>
+    <title>スライドショー</title>
     <link rel="stylesheet" type="text/css" href="slick-theme.css">
     <link rel="stylesheet" type="text/css" href="slick.css">
+    <script src="jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="slick.js"></script>
 </head>
+<!--ドットの大きさ変更-->
+<style>
+    .slick-dots li button:before{
+        font-size: 100px !important;
+    }
+</style>
 <body>
-    <ul id="gallery">
+    <ul id="slider">
         <img src="imagesコピー/gallery01.jpg" alt="宇宙飛行士">
         <img src="imagesコピー/gallery02.jpg" alt="岩山">
         <img src="imagesコピー/gallery03.jpg" alt="湖">
         <img src="imagesコピー/gallery04.jpg" alt="風船">
     </ul>
+    <script>
+        $("#slider").slick({
+            slidesToShow:3,
+            slideToScroll:1,
+            dots:true,
+            autoplay:true,
+            autoplaySpeed:500,
+        });
+    </script>
 </body>
 </html>
