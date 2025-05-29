@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ピアノアプリ</title>
+</head>
+<body>
+    <div id="area"></div>
+    <div id="keyboard">
+        <button type="button" class="note" id="do">ド</button>
+        <button type="button" class="note" id="re">レ</button>
+        <button type="button" class="note" id="mi">ミ</button>
+        <button type="button" class="note" id="fa">ファ</button>
+        <button type="button" class="note" id="so">ソ</button>
+        <button type="button" class="note" id="ra">ラ</button>
+        <button type="button" class="note" id="si">シ</button>
+    </div>
+    <div id="container">
+    <button type="button" id="autoplay">自動演奏</button>
+    </div>
+    <style>
+        body{
+            margin: 0;
+        }
+        #area{
+            background-color:rgba(0, 255,255, 0.3);
+            color: black;
+            font-size: 100px;
+            font-weight: bold;
+            width: 500px;
+            height: 250px;
+            line-height: 250px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #keyboard{
+            width: 100%;
+            gap:0 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .note{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            font-size: 40px;
+            line-height: 100px;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        #autoplay{
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 40px;
+            justify-content: center;
+        }
+    </style>
+    <script>
+    //手動演奏機能
+        let area=document.getElementById("area");
+        let do_key=document.getElementById("do");
+        let re_key=document.getElementById("re");
+        let mi_key=document.getElementById("mi");
+        let fa_key=document.getElementById("fa");
+        let so_key=document.getElementById("so");
+        let ra_key=document.getElementById("ra");
+        let si_key=document.getElementById("si");
+        //ドを押した時の処理
+        const do_function=()=>{
+           let do_str=do_key.textContent;
+           area.textContent=(do_str); 
+        }
+        const re_function=()=>{
+           let re_str=re_key.textContent;
+           area.textContent=(re_str); 
+        }
+        const mi_function=()=>{
+           let mi_str=mi_key.textContent;
+           area.textContent=(mi_str); 
+        }
+        const fa_function=()=>{
+           let fa_str=fa_key.textContent;
+           area.textContent=(fa_str); 
+        }
+        const so_function=()=>{
+           let so_str=so_key.textContent;
+           area.textContent=(so_str); 
+        }
+        const ra_function=()=>{
+           let ra_str=ra_key.textContent;
+           area.textContent=(ra_str); 
+        }
+        const si_function=()=>{
+           let si_str=si_key.textContent;
+           area.textContent=(si_str); 
+        }
+        do_key.addEventListener("click",do_function);
+        re_key.addEventListener("click",re_function);
+        mi_key.addEventListener("click",mi_function);
+        fa_key.addEventListener("click",fa_function);
+        so_key.addEventListener("click",so_function);
+        ra_key.addEventListener("click",ra_function);
+        si_key.addEventListener("click",si_function);
+    </script>
+</body>
+</html>
