@@ -62,8 +62,8 @@
         }
     </style>
     <script>
-    //手動演奏機能
-        let area=document.getElementById("area");
+        //手動演奏機能
+        let sound_area=document.getElementById("area");
         let do_key=document.getElementById("do");
         let re_key=document.getElementById("re");
         let mi_key=document.getElementById("mi");
@@ -71,34 +71,45 @@
         let so_key=document.getElementById("so");
         let ra_key=document.getElementById("ra");
         let si_key=document.getElementById("si");
+        //音の文字を消す
+        const clear_function=()=>{
+            sound_area.textContent="";
+        }
         //ドを押した時の処理
         const do_function=()=>{
            let do_str=do_key.textContent;
-           area.textContent=(do_str); 
+           sound_area.textContent=(do_str);
+           setTimeout(clear_function,1000); 
         }
         const re_function=()=>{
            let re_str=re_key.textContent;
-           area.textContent=(re_str); 
+           sound_area.textContent=(re_str);
+           setTimeout(clear_function,1000); 
         }
         const mi_function=()=>{
            let mi_str=mi_key.textContent;
-           area.textContent=(mi_str); 
+           sound_area.textContent=(mi_str); 
+           setTimeout(clear_function,1000);
         }
         const fa_function=()=>{
            let fa_str=fa_key.textContent;
-           area.textContent=(fa_str); 
+           sound_area.textContent=(fa_str);
+           setTimeout(clear_function,1000); 
         }
         const so_function=()=>{
            let so_str=so_key.textContent;
-           area.textContent=(so_str); 
+           sound_area.textContent=(so_str);
+           setTimeout(clear_function,1000); 
         }
         const ra_function=()=>{
            let ra_str=ra_key.textContent;
-           area.textContent=(ra_str); 
+           sound_area.textContent=(ra_str);
+           setTimeout(clear_function,1000); 
         }
         const si_function=()=>{
            let si_str=si_key.textContent;
-           area.textContent=(si_str); 
+           sound_area.textContent=(si_str);
+           setTimeout(clear_function,1000); 
         }
         do_key.addEventListener("click",do_function);
         re_key.addEventListener("click",re_function);
