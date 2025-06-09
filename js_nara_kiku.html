@@ -148,8 +148,7 @@
            let si_str=si_key.textContent;
            sound_area.textContent=(si_str); 
         }
-        //きらきら星
-        const star_function=()=>{
+        const auto_funcition=()=>{
             header_text.textContent=("自動演奏中です：きらきら星");
             auto_key.textContent=("演奏中止")
             //鍵盤無効化
@@ -157,92 +156,160 @@
                 notes[i].style.opacity=0.5;
                 notes[i].disabled=true;
             }
-           //きらきら星楽譜 
-           setTimeout(do_auto,0);
-           //500ミリ後に休符、後は前の秒に前の音符の指定時間をプラスするだけ 
-           setTimeout(clear_function,500);
-           setTimeout(do_auto,1000);
-           setTimeout(clear_function,1500);
-           setTimeout(so_auto,2000);
-           setTimeout(clear_function,2500);
-           setTimeout(so_auto,3000);
-           setTimeout(clear_function,3500);
-           setTimeout(ra_auto,4000);
-           setTimeout(clear_function,4500);
-           setTimeout(ra_auto,5000);
-           setTimeout(clear_function,5500);
-           setTimeout(so_auto,6000);
-           //2行目
-           setTimeout(fa_auto,8000);
-           setTimeout(clear_function,8500);
-           setTimeout(fa_auto,9000);
-           setTimeout(clear_function,9500);
-           setTimeout(mi_auto,10000);
-           setTimeout(clear_function,10500);
-           setTimeout(mi_auto,11000);
-           setTimeout(clear_function,11500);
-           setTimeout(re_auto,12000);
-           setTimeout(clear_function,12500);
-           setTimeout(re_auto,13000);
-           setTimeout(clear_function,13500);
-           setTimeout(do_auto,14000);
-           //3行目
-           setTimeout(so_auto,16000);
-           setTimeout(clear_function,16500);
-           setTimeout(so_auto,17000);
-           setTimeout(clear_function,17500);
-           setTimeout(fa_auto,18000);
-           setTimeout(clear_function,18500);
-           setTimeout(fa_auto,19000);
-           setTimeout(clear_function,19500);
-           setTimeout(mi_auto,20000);
-           setTimeout(clear_function,20500);
-           setTimeout(mi_auto,21000);
-           setTimeout(clear_function,21500);
-           setTimeout(re_auto,22000);
-           //4行目
-           setTimeout(so_auto,24000);
-           setTimeout(clear_function,24500);
-           setTimeout(so_auto,25000);
-           setTimeout(clear_function,25500);
-           setTimeout(fa_auto,26000);
-           setTimeout(clear_function,26500);
-           setTimeout(fa_auto,27000);
-           setTimeout(clear_function,27500);
-           setTimeout(mi_auto,28000);
-           setTimeout(clear_function,28500);
-           setTimeout(mi_auto,29000);
-           setTimeout(clear_function,29500);
-           setTimeout(re_auto,30000); 
-           //5行目
-           setTimeout(do_auto,32000);
-           setTimeout(clear_function,32500);
-           setTimeout(do_auto,33000);
-           setTimeout(clear_function,33500);
-           setTimeout(so_auto,34000);
-           setTimeout(clear_function,34500);
-           setTimeout(so_auto,35000);
-           setTimeout(clear_function,35500);
-           setTimeout(ra_auto,36000);
-           setTimeout(clear_function,36500);
-           setTimeout(ra_auto,37000);
-           setTimeout(clear_function,37500);
-           setTimeout(so_auto,38000);
-           //6行目
-           setTimeout(fa_auto,40000);
-           setTimeout(clear_function,40500);
-           setTimeout(fa_auto,41000);
-           setTimeout(clear_function,41500);
-           setTimeout(mi_auto,42000);
-           setTimeout(clear_function,42500);
-           setTimeout(mi_auto,43000);
-           setTimeout(clear_function,43500);
-           setTimeout(re_auto,44000);
-           setTimeout(clear_function,44500);
-           setTimeout(re_auto,45000);
-           setTimeout(clear_function,45500);
-           setTimeout(do_auto,46000);
-           setTimeout(clear_function,50000);
+            //曲をシャッフル
+            let x=Math.floor(Math.random()*2);
+            if(x==1){
+                header_text.textContent=("自動演奏中です：きらきら星");
+                const star_function=()=>{
+                    //きらきら星楽譜 
+                    setTimeout(do_auto,0);
+                    //500ミリ後に休符、後は前の秒に前の音符の指定時間をプラスするだけ 
+                    setTimeout(clear_function,500);
+                    setTimeout(do_auto,1000);
+                    setTimeout(clear_function,1500);
+                    setTimeout(so_auto,2000);
+                    setTimeout(clear_function,2500);
+                    setTimeout(so_auto,3000);
+                    setTimeout(clear_function,3500);
+                    setTimeout(ra_auto,4000);
+                    setTimeout(clear_function,4500);
+                    setTimeout(ra_auto,5000);
+                    setTimeout(clear_function,5500);
+                    setTimeout(so_auto,6000);
+                    //2行目
+                    setTimeout(fa_auto,8000);
+                    setTimeout(clear_function,8500);
+                    setTimeout(fa_auto,9000);
+                    setTimeout(clear_function,9500);
+                    setTimeout(mi_auto,10000);
+                    setTimeout(clear_function,10500);
+                    setTimeout(mi_auto,11000);
+                    setTimeout(clear_function,11500);
+                    setTimeout(re_auto,12000);
+                    setTimeout(clear_function,12500);
+                    setTimeout(re_auto,13000);
+                    setTimeout(clear_function,13500);
+                    setTimeout(do_auto,14000);
+                    //3行目
+                    setTimeout(so_auto,16000);
+                    setTimeout(clear_function,16500);
+                    setTimeout(so_auto,17000);
+                    setTimeout(clear_function,17500);
+                    setTimeout(fa_auto,18000);
+                    setTimeout(clear_function,18500);
+                    setTimeout(fa_auto,19000);
+                    setTimeout(clear_function,19500);
+                    setTimeout(mi_auto,20000);
+                    setTimeout(clear_function,20500);
+                    setTimeout(mi_auto,21000);
+                    setTimeout(clear_function,21500);
+                    setTimeout(re_auto,22000);
+                    //4行目
+                    setTimeout(so_auto,24000);
+                    setTimeout(clear_function,24500);
+                    setTimeout(so_auto,25000);
+                    setTimeout(clear_function,25500);
+                    setTimeout(fa_auto,26000);
+                    setTimeout(clear_function,26500);
+                    setTimeout(fa_auto,27000);
+                    setTimeout(clear_function,27500);
+                    setTimeout(mi_auto,28000);
+                    setTimeout(clear_function,28500);
+                    setTimeout(mi_auto,29000);
+                    setTimeout(clear_function,29500);
+                    setTimeout(re_auto,30000); 
+                    //5行目
+                    setTimeout(do_auto,32000);
+                    setTimeout(clear_function,32500);
+                    setTimeout(do_auto,33000);
+                    setTimeout(clear_function,33500);
+                    setTimeout(so_auto,34000);
+                    setTimeout(clear_function,34500);
+                    setTimeout(so_auto,35000);
+                    setTimeout(clear_function,35500);
+                    setTimeout(ra_auto,36000);
+                    setTimeout(clear_function,36500);
+                    setTimeout(ra_auto,37000);
+                    setTimeout(clear_function,37500);
+                    setTimeout(so_auto,38000);
+                    //6行目
+                    setTimeout(fa_auto,40000);
+                    setTimeout(clear_function,40500);
+                    setTimeout(fa_auto,41000);
+                    setTimeout(clear_function,41500);
+                    setTimeout(mi_auto,42000);
+                    setTimeout(clear_function,42500);
+                    setTimeout(mi_auto,43000);
+                    setTimeout(clear_function,43500);
+                    setTimeout(re_auto,44000);
+                    setTimeout(clear_function,44500);
+                    setTimeout(re_auto,45000);
+                    setTimeout(clear_function,45500);
+                    setTimeout(do_auto,46000);
+                    setTimeout(clear_function,50000);
+                }
+                star_function();
+            }else if(x==0){
+                    const tulip_function=()=>{
+                    header_text.textContent=("自動演奏中です：チューリップ");
+                    //チューリップ楽譜
+                    setTimeout(do_auto,0);
+                    setTimeout(re_auto,500);
+                    setTimeout(mi_auto,1000);
+                    setTimeout(do_auto,2000);
+                    setTimeout(re_auto,2500);
+                    setTimeout(mi_auto,3000);
+                    //2行目
+                    setTimeout(so_auto,4000);
+                    setTimeout(mi_auto,4500);
+                    setTimeout(re_auto,5000);
+                    setTimeout(do_auto,5500);
+                    setTimeout(re_auto,6000);
+                    setTimeout(mi_auto,6500);
+                    setTimeout(re_auto,7000);
+                    //3行目
+                    setTimeout(do_auto,8000);
+                    setTimeout(re_auto,8500);
+                    setTimeout(mi_auto,9000);
+                    setTimeout(do_auto,10000);
+                    setTimeout(re_auto,10500);
+                    setTimeout(mi_auto,11000);
+                    setTimeout(so_auto,12000);
+                    setTimeout(mi_auto,12500);
+                    setTimeout(re_auto,13000);
+                    setTimeout(do_auto,13500);
+                    setTimeout(re_auto,14000);
+                    setTimeout(mi_auto,14500);
+                    setTimeout(do_auto,15000);
+                    //4行目
+                    setTimeout(so_auto,16000);
+                    setTimeout(clear_function,16250);
+                    setTimeout(so_auto,16500);
+                    setTimeout(clear_function,16750);
+                    setTimeout(mi_auto,17000);
+                    setTimeout(clear_function,17250);
+                    setTimeout(so_auto,17500);
+                    setTimeout(clear_function,17750);
+                    //5行目
+                    setTimeout(ra_auto,18000);
+                    setTimeout(clear_function,18250);
+                    setTimeout(ra_auto,18500);
+                    setTimeout(clear_function,18750);
+                    setTimeout(so_auto,19000);
+                    //６行目
+                    setTimeout(mi_auto,20000);
+                    setTimeout(clear_function,20250);
+                    setTimeout(mi_auto,20500);
+                    setTimeout(clear_function,20750);
+                    setTimeout(re_auto,21000);
+                    setTimeout(clear_function,21250);
+                    setTimeout(re_auto,21500);
+                    setTimeout(clear_function,21750);
+                    setTimeout(do_auto,22000);
+                    setTimeout(clear_function,26000);
+                }
+                tulip_function();
+            }   
         }
         do_key.addEventListener("click",do_function);
         re_key.addEventListener("click",re_function);
@@ -251,7 +318,7 @@
         so_key.addEventListener("click",so_function);
         ra_key.addEventListener("click",ra_function);
         si_key.addEventListener("click",si_function);
-        auto_key.addEventListener("click",star_function);
+        auto_key.addEventListener("click",auto_funcition);
     </script>
 </body>
 </html>
